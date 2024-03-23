@@ -83,16 +83,16 @@ affinity: {}
 
 configMap:
   name: langfuse-configmap
-  langfuse_node_env: production
-  langfuse_db_url:
-    username: postgres
-    password: postgres
-    address: db
-    port: 5432
-    dbname: postgres
-  langfuse_nextauth_url: http://localhost:3000
-  langfuse_nextauth_secret: mysecret
-  langfuse_salt: mysalt
-  langfuse_telemetry_enabled: true
-  langfuse_next_public_sign_up_disabled: false
-  langfuse_enable_experimentalfeatures: false
+  NODE_ENV: production
+  DATABASE_URL:
+    USERNAME: postgres
+    PASSWORD: postgres
+    ADDRESS: db
+    PORT: 5432
+    DBNAME: postgres
+  NEXTAUTH_URL: http://localhost:3000
+  NEXTAUTH_SECRET: mysecret
+  SALT: mysalt
+  TELEMETRY_ENABLED: true
+  NEXT_PUBLIC_SIGN_UP_DISABLED: false
+  LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: false

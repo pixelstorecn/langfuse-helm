@@ -1,0 +1,15 @@
+{{- if (empty .Values.existingConfigMap) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+data:
+  NODE_ENV: {{ .Values.configMap.NODE_ENV | default "production" }}
+  DATABASE_URL: postgresql://{{ .Values.configMap.DATABASE_URL.USERNAME | default "postgres" }}:{{ .Values.configMap.DATABASE_URL.PASSWORD | default "postgres" }}@{{ .Values.configMap.DATABASE_URL.ADDRESS | default "db" }}:{{ .Values.configMap.DATABASE_URL.PORT | default "5432" }}/{{ .Values.configMap.DATABASE_URL.DBNAME | default "postgres" }}
+  NEXTAUTH_URL: {{ .Values.configMap.NEXTAUTH_URL | default "http://localhost:3000" }}
+  NEXTAUTH_SECRET: {{ .Values.configMap.NEXTAUTH_SECRET | default "mysecret" }}
+  SALT: {{ .Values.configMap.SALT | default "mysalt" }}
+  TELEMETRY_ENABLED: '{{ .Values.configMap.TELEMETRY_ENABLED | default "true" }}'
+  NEXT_PUBLIC_SIGN_UP_DISABLED: '{{ .Values.configMap.NEXT_PUBLIC_SIGN_UP_DISABLED | default "false" }}'
+  LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: '{{ .Values.configMap.LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES | default "false" }}'
+{{- end -}}

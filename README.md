@@ -27,5 +27,6 @@ There are required values that you may need set explicitly when deploying Langfu
 ## Install released version using Docker Helm repository (>= 4.3.0)
 
 ```shell
-helm install langfuse oci://registry-1.docker.io/pixelstorecn/langfuse-helm --version <langfuse vserion you want> -n <namespace> --set fullnameOverride=langfuse 
+helm install langfuse oci://registry-1.docker.io/pixelstorecn/langfuse-helm \
+  --version <langfuse vserion you want> -n <namespace> --set fullnameOverride=langfuse 
 ```
